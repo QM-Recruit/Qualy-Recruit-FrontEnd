@@ -19,7 +19,7 @@ function JobForm({ closeForm }) {
               <br />
               Job offer for those who are interested in working at Japan IT company in Mawlamyine, Myanmar. Position include Web Design Coder, Quality Assurance Engineer, Japanese Teacher, and more. Please apply your CV.
             </p>
-            <p className="notice-txt">* MANDATORY FIELDS</p>
+            <p className="notice-txt">* Require</p>
           </div>
           <div className="bottom">
             {/* <MailForm closeForm={closeForm} /> */}
