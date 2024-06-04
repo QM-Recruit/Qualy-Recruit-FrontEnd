@@ -81,12 +81,12 @@ function MailApplyForm({ closeForm }) {
       <div className="form">
         <form>
           <div className="row">
-            <label htmlFor="fullName">Your full name *</label>
+            <label htmlFor="fullName">Your Full Name *</label>
             <input type="text" id="fullName" name="fullName" value={formData.fullName} onChange={handleInputChange} />
             {errors.fullName && <span className="error-txt">{errors.fullName}</span>}
           </div>
           <div className="row">
-            <label htmlFor="emailAddress">Your email address *</label>
+            <label htmlFor="emailAddress">Your Email Address *</label>
             <input type="text" id="emailAddress" name="emailAddress" value={formData.emailAddress} onChange={handleInputChange} />
             {errors.emailAddress && <span className="error-txt">{errors.emailAddress}</span>}
           </div>
@@ -110,10 +110,10 @@ function MailApplyForm({ closeForm }) {
             {errors.selectedPosition && <span className="error-txt">{errors.selectedPosition}</span>}
           </div>
           <div className="row ">
-            <label htmlFor="shiftSystem">Select your preferred shift *</label>
+            <label htmlFor="shiftSystem">Choose your preferred shift *</label>
             <select id="shiftSystem" name="shiftSystem" value={formData.shiftSystem} onChange={handleInputChange}>
               <option value="" disabled>
-                Select
+                Choose
               </option>
               {shiftOptions.map((shift, index) => (
                 <option key={index} value={shift}>
@@ -124,7 +124,7 @@ function MailApplyForm({ closeForm }) {
             {errors.shiftSystem && <span className="error-txt">{errors.shiftSystem}</span>}
           </div>
           <div className="row mb50 mb30-sp">
-            <label htmlFor="cvv">Upload Your CV File *</label>
+            <label htmlFor="cvv">Upload Your Resume Form *</label>
             <input type="file" id="cvv" onChange={handleFileChange} />
             {errors.cv && <span className="error-txt">{errors.cv}</span>}
           </div>

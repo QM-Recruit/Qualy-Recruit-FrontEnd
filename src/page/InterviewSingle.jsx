@@ -63,34 +63,34 @@ function InterviewSingle() {
           <motion.div className="ques-block" variants={fadeUpAnimation} initial="hidden" animate="visible" exit="hidden">
             <div className="ques-card">
               <p className="member-question">{interviewer.q1}</p>
-              <p className="member-answer">{interviewer.ans1}</p>
+              <p className="member-answer" dangerouslySetInnerHTML={{ __html: interviewer.ans1 }}></p>
             </div>
             <div className="ques-card">
               <p className="member-question">{interviewer.q2}</p>
-              <p className="member-answer">{interviewer.ans2}</p>
+              <p className="member-answer" dangerouslySetInnerHTML={{ __html: interviewer.ans2 }}></p>
             </div>
             <div className="ques-card">
               <p className="member-question">{interviewer.q3}</p>
-              <p className="member-answer">{interviewer.ans3}</p>
+              <p className="member-answer" dangerouslySetInnerHTML={{ __html: interviewer.ans3 }}></p>
             </div>
             <div className="ques-card">
               <p className="member-question">{interviewer.q4}</p>
-              <p className="member-answer">{interviewer.ans4}</p>
+              <p className="member-answer" dangerouslySetInnerHTML={{ __html: interviewer.ans4 }}></p>
             </div>
             <motion.div className="member-photo2" variants={fadeUpAnimation} initial="hidden" animate="visible" exit="hidden">
               <img src={interviewer.mv_src2} alt={interviewer.alt} />
             </motion.div>
             <div className="ques-card">
               <p className="member-question">{interviewer.q5}</p>
-              <p className="member-answer">{interviewer.ans5}</p>
+              <p className="member-answer" dangerouslySetInnerHTML={{ __html: interviewer.ans5 }}></p>
             </div>
             <div className="ques-card">
               <p className="member-question">{interviewer.q6}</p>
-              <p className="member-answer">{interviewer.ans6}</p>
+              <p className="member-answer" dangerouslySetInnerHTML={{ __html: interviewer.ans6 }}></p>
             </div>
             <div className="ques-card">
               <p className="member-question">{interviewer.q7}</p>
-              <p className="member-answer">{interviewer.ans7}</p>
+              <p className="member-answer" dangerouslySetInnerHTML={{ __html: interviewer.ans7 }}></p>
             </div>
           </motion.div>
         </div>

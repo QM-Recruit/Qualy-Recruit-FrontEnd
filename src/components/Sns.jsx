@@ -23,9 +23,9 @@ function Sns() {
       alt: "JTCMFacebookの画像",
     },
     {
-      link: "https://www.facebook.com/jtcmandalay",
-      src: "/jtco.png",
-      alt: "JTCOFacebookの画像",
+      link: "https://www.facebook.com/jtcyangon/",
+      src: "/jtcy.png",
+      alt: "JTCYFacebookの画像",
     },
   ];
   const linkedinData = [

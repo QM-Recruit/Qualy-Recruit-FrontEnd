@@ -146,6 +146,10 @@ header .nav-items ul button,
   cursor: pointer;
   width: 180px;
 }
+.job-form .form button {
+  font-size: 24px;
+  width: 220px;
+}
 /*CSS*/
 header .menu-btn {
   display: flex;
@@ -332,6 +336,14 @@ footer .txt {
   padding: 10px;
   font-size: 16px;
 }
+.job-form .form select{
+  position: relative;
+  appearance: none;
+  background: url(/public/down_arrow_1.png);
+  background-repeat: no-repeat;
+  background-size: 17px 10px;
+  background-position: 97%;
+}
 
 .job-form .form {
   margin-left: 5px;
@@ -413,6 +425,12 @@ footer .txt {
 .job-form .form input[type="file"]::file-selector-button:active {
   background-color: #e5e7eb;
 }
+.job-form .form input[type="number"]::-webkit-outer-spin-button,
+.job-form .form input[type="number"]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
 .error-txt {
   color: var(--red);
   font-weight: 400;
@@ -562,6 +580,10 @@ footer .txt {
   .job-form .form select,
   .job-form .form button {
     font-size: 14px;
+  }
+  .job-form .form button {
+    font-size: 14px;
+    width: 180px;
   }
 }
 
