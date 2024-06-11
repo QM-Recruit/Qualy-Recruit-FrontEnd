@@ -8,7 +8,7 @@ const interviewerData = [
     position2: "Director",
     name: "Ms.Yadanar Kyaw Khaing",
     date: "(Joined in 2018)",
-    mv_src1: "/_single.jpg",
+    mv_src1: "/mt_single.JPEG",
     mv_src2: "/mk_uniform.jpeg",
     q1: "Please share your current job responsibilities at Qualy Myanmar.",
     ans1: "I'm currently living in Japan and telework with Qualy Myanmar side, primarily focusing on management tasks.<br> My responsibilities include from developing necessary test cases at project initiation to overseeing project management until completion. Throughout the project testing period, I provide support to team members to ensure smooth testing processes. Additionally, I am accountable for client communication.<br> In addition to project-related duties, I participate in brainstorming sessions for company growth and attend other meetings as required",

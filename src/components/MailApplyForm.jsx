@@ -82,24 +82,24 @@ function MailApplyForm({ closeForm }) {
         <form>
           <div className="row">
             <label htmlFor="fullName">Your Full Name *</label>
-            <input type="text" id="fullName" name="fullName" value={formData.fullName} onChange={handleInputChange} />
+            <input type="text" id="fullName" name="fullName" value={formData.fullName} onChange={handleInputChange} placeholder="Mr. Mg Mg" />
             {errors.fullName && <span className="error-txt">{errors.fullName}</span>}
           </div>
           <div className="row">
             <label htmlFor="emailAddress">Your Email Address *</label>
-            <input type="text" id="emailAddress" name="emailAddress" value={formData.emailAddress} onChange={handleInputChange} />
+            <input type="text" id="emailAddress" name="emailAddress" value={formData.emailAddress} onChange={handleInputChange} placeholder="example@gmail.com" />
             {errors.emailAddress && <span className="error-txt">{errors.emailAddress}</span>}
           </div>
           <div className="row">
             <label htmlFor="phNumber">Your Phone Number *</label>
-            <input type="number" id="phNumber" name="phNumber" value={formData.phNumber} onChange={handleInputChange} />
+            <input type="number" id="phNumber" name="phNumber" value={formData.phNumber} onChange={handleInputChange} placeholder="09-0000 0000"/>
             {errors.phNumber && <span className="error-txt">{errors.phNumber}</span>}
           </div>
           <div className="row ">
             <label htmlFor="selectedPosition">Which position are you interested in? *</label>
             <select id="selectedPosition" name="selectedPosition" value={formData.selectedPosition} onChange={handleInputChange}>
               <option value="" disabled>
-                Select
+                Choose
               </option>
               {jobOptions.map((position, index) => (
                 <option key={index} value={position}>

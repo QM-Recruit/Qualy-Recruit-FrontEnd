@@ -16,6 +16,8 @@ export default function Validation({ formData }) {
 
   if (formData.phNumber === "") {
     errors.phNumber = "Phone Number is Required";
+  } else if (formData.phNumber.length < 9) {
+    errors.phNumber = "This number is invalid format";
   }
 
   if (formData.selectedPosition === "") {
