@@ -510,6 +510,7 @@ footer .txt {
     position: absolute;
     height: 200vh;
     opacity: 0;
+    visibility: hidden;
   }
   header .nav-items.open {
     display: block;
@@ -519,6 +520,7 @@ footer .txt {
     left: 0;
     top: 82px;
     z-index: 9;
+    visibility: visible;
   }
   header .nav-items ul {
     flex-direction: column;

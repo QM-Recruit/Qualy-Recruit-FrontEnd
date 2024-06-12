@@ -135,7 +135,7 @@ const interviewerData = [
     src: "/tsb_capture.jpg",
     alt: "tsb_captrueの画像",
     position: "Japanese Teacher",
-    name: "Thin Sabai",
+    name: "Ms.Thin Sabai",
     date: "(Joined in 2022)",
     mv_src1: "/tsb_single.jpg",
     mv_src2: "/tsb_uniform.jpg",

@@ -6,7 +6,7 @@ function JobForm({ closeForm }) {
     <>
       <div className="inner">
         <div className="close" onClick={closeForm}>
-          <img src="close.png" alt="" />
+          <img src="/close.png" alt="close_image" />
         </div>
         <div className="contents">
           <div className="top">
@@ -22,7 +22,6 @@ function JobForm({ closeForm }) {
             <p className="notice-txt">* Require</p>
           </div>
           <div className="bottom">
-            {/* <MailForm closeForm={closeForm} /> */}
             <MailApplyForm closeForm={closeForm} />
           </div>
         </div>
