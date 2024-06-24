@@ -26,6 +26,7 @@ function Posts() {
   const [selectedUserId, setSelectedUserId] = useState(null);
   const [showModal, setShowModal] = useState(false);
   const [loading, setLoading] = useState(false);
+  const [showPost, setShowPost] = useState(false);
   const jobOptions = ["QA Engineer", "Front-end Engineer", "Japanese Teacher", "School Admin", "Admin"];
   const genderOptions = ["Male", "Female", "Male/Female"];
   const { confirm } = Modal;
@@ -68,6 +69,7 @@ function Posts() {
       value: value,
       date: date,
       description: description,
+      showPost: showPost,
       timestamp: getUnixTime(new Date()), // Add timestamp
     };
     push(dataRef, newUser);
@@ -78,6 +80,7 @@ function Posts() {
     setValue("");
     setDate("");
     setDescription("");
+    setShowPost(false);
     setShowModal(false);
   };
 
@@ -91,6 +94,7 @@ function Posts() {
         value: value,
         date: date,
         description: description,
+        showPost: showPost, // Ensure this is included
         timestamp: getUnixTime(new Date()), // Update timestamp
       };
       update(dataRef, updatedUser);
@@ -128,6 +132,7 @@ function Posts() {
     setValue(user.value);
     setDate(user.date);
     setDescription(user.description);
+    setShowPost(user.showPost); // Ensure this is set when selecting a user
     setSelectedUserId(user.id);
     setShowModal(true);
   };
@@ -141,6 +146,19 @@ function Posts() {
     setDate("");
     setDescription("");
     setSelectedUserId(null);
+  };
+
+  const handleToggleShowPost = (user) => {
+    const dataRef = ref(database, `posts/${user.id}`);
+    const updatedUser = { ...user, showPost: !user.showPost };
+    update(dataRef, updatedUser)
+      .then(() => {
+        message.success(`Post ${user.showPost ? "hidden" : "shown"} successfully.`);
+      })
+      .catch((error) => {
+        message.error("Failed to update post visibility.");
+        console.error(error);
+      });
   };
 
   let count = 1;
@@ -175,8 +193,8 @@ function Posts() {
                   <div className="cell">{user.gender}</div>
                   <div className="cell">{user.value}</div>
                   <div className="cell">{user.date}</div>
-                  <div className="cell" dangerouslySetInnerHTML={{ __html: user.description }}></div>
-
+                  {/* <div className="cell" dangerouslySetInnerHTML={{ __html: user.description }}></div> */}
+                  <div className="cell" dangerouslySetInnerHTML={{ __html: user.description.slice(0, 30) + (user.description.length > 30 ? '...' : '') }}></div>
                   <div className="cell">
                     <Flex gap="small" justify="center">
                       <Button type="primary" onClick={() => handleSelectUser(user)}>
@@ -184,6 +202,9 @@ function Posts() {
                       </Button>
                       <Button type="primary" danger onClick={() => handleDeleteUser(user.id)}>
                         Delete
+                      </Button>
+                      <Button type="primary" onClick={() => handleToggleShowPost(user)}>
+                        {user.showPost ? "Hide Post" : "Show Post"}
                       </Button>
                     </Flex>
                   </div>
@@ -221,9 +242,7 @@ function Posts() {
                 ))}
               </select>
               <input type="number" placeholder="Salary" value={value} onChange={(e) => setValue(e.target.value)} />
-              <input type="date" placeholder="Salary" value={date} onChange={(e) => setDate(e.target.value)} />
-              {/* <textarea rows="5" placeholder="Description" value={description} onChange={(e) => setDescription(e.target.value)} /> */}
-              {/* {selectedUserId ? <button onClick={handleUpdateUser}>Update Post</button> : <button onClick={handleAddUser}>Add Post</button>} */}
+              <input type="date" placeholder="Date" value={date} onChange={(e) => setDate(e.target.value)} />
               <ReactQuill theme="snow" value={description} onChange={handleChange} placeholder="Write something..." />
               <button type="submit">{selectedUserId ? "Update Post" : "Add Post"}</button>
             </div>

@@ -138,7 +138,7 @@ const interviewerData = [
     name: "Ms.Thin Sabai",
     date: "(Joined in 2022)",
     mv_src1: "/tsb_single.jpg",
-    mv_src2: "/tsb_uniform.jpg",
+    mv_src2: "/tsb_uniform.JPEG",
     q1: "Please share your current job responsibilities at Qualy Myanmar.",
     ans1: "I currently teach Japanese language classes ranging from N5 to N3 levels at JTCM Japanese Language School.<br> In addition to teaching, I introduce Japanese culture to my students and provide the training to students who are going to have interviews and who already passed the interview to work in Japan.<br> On the other hand, I interpret the documents and also assist on post contents for Facebook page if necessary.",
     q2: "How you started working at Qualy Myanmar?",

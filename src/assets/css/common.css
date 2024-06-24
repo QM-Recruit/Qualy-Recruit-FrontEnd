@@ -373,6 +373,7 @@ footer .txt {
 .job-form .form input[type="file"] {
   position: relative;
   height: auto;
+  width: auto;
 }
 
 .job-form .form input[type="file"]::file-selector-button {

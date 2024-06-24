@@ -9,6 +9,7 @@ const database = getDatabase(app);
 
 function CompanyData() {
   const [data, setData] = useState([]);
+  console.log(data);
   const [showForm, setShowForm] = useState(false);
   const [isTablet, setIsTablet] = useState(window.innerWidth <= 768);
   const [isMobile, setIsMobile] = useState(window.innerWidth <= 500);
@@ -59,24 +60,26 @@ function CompanyData() {
   return (
     <div className="jobs-list">
       {data.map((post) => (
-        <div className="job-card" key={post.id}>
-          <h4 className="card-ttl">
-            {post.title}
-            <br className="sp" /> ({post.gender} - {post.hirePerson} Post{post.hirePerson > 1 ? "s" : ""})<span onClick={() => setShowForm(true)} className="arrow"></span>
-          </h4>
-          <div className="desc">
-            <div className="left">
-              <span>Full-time employee</span>
-              <span>$ {post.value}〜</span>
+        <>
+          {post.showPost && (
+            <div className="job-card" key={post.id}>
+              <h4 className="card-ttl">
+                {post.title}
+                <br className="sp" /> ({post.gender} - {post.hirePerson} Post{post.hirePerson > 1 ? "s" : ""})<span onClick={() => setShowForm(true)} className="arrow"></span>
+              </h4>
+              <div className="desc">
+                <div className="left">
+                  <span>Full-time employee</span>
+                  <span>$ {post.value}〜</span>
+                </div>
+                <div className="right">
+                  Recruitment deadline<span className="date">{post.date}</span>
+                </div>
+              </div>
+              <div className="detail" dangerouslySetInnerHTML={{ __html: post.description }}></div>
             </div>
-            <div className="right">
-              {/* Recruitment deadline<span className="date">{format(new Date(post.date), "yyyy.M.dd")}</span> */}
-              Recruitment deadline<span className="date">{post.date}</span>
-            </div>
-          </div>
-          {/* <p className="detail">{post.description}</p> */}
-          <div className="detail" dangerouslySetInnerHTML={{ __html: post.description }}></div>
-        </div>
+          )}
+        </>
       ))}
       <AnimatePresence>
         {showForm && (
