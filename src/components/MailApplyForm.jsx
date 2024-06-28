@@ -66,7 +66,7 @@ function MailApplyForm({ closeForm }) {
               timestamp: getUnixTime(new Date()),
             })
               .then(() => {
-                toast.success("Message Sent Successfully");
+                toast.success("Your application form has been sent successfully");
                 setFormData({
                   fullName: "",
                   degreeLevel: "",
