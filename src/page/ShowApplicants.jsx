@@ -13,12 +13,14 @@ function ShowApplicants() {
   const { confirm } = Modal;
 
   useEffect(() => {
+    setLoading(true);
     const applicantsRef = dbRef(database, "applicantsdb/");
     onValue(applicantsRef, (snapshot) => {
       const data = snapshot.val();
       const applicantsList = data ? Object.values(data) : [];
       const sortedList = applicantsList.sort((a, b) => a.timestamp - b.timestamp);
       setApplicants(sortedList);
+      setLoading(false);
     });
   }, []);
 

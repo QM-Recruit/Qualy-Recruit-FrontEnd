@@ -46,6 +46,8 @@ export default function Validation({ formData }) {
 
   if (formData.cv === "") {
     errors.cv = "Please upload your resume form & certificates";
+  } else if (formData.cv.type !== "application/pdf") {
+    errors.cv = "Please upload a PDF file format";
   }
   return errors;
 }

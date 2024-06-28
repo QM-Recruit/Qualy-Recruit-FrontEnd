@@ -30,7 +30,7 @@ function App() {
   }, []);
   return (
     <div>
-      <ToastContainer autoClose={800} theme="colored" />
+      <ToastContainer autoClose={3000} theme="colored" />
       {isLoading ? (
         <Loading />
       ) : (
@@ -42,8 +42,8 @@ function App() {
             <Route path="/interview/:id" element={<InterviewSingle />} />
             {adminUser && <Route path="/admin" element={<Admin />} />}
             {!adminUser && <Route path="/admin" element={<Login />} />}
-            {adminUser &&<Route path="/applicants" element={<ShowApplicants />} />}
-            {!adminUser && <Route path="/applicants" element={<Login />} />}
+            {adminUser &&<Route path="/admin/applicants" element={<ShowApplicants />} />}
+            {!adminUser && <Route path="/admin/applicants" element={<Login />} />}
             <Route path="*" element={<Error />} />
           </Routes>
           <Footer />

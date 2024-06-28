@@ -44,7 +44,7 @@ function MailApplyForm({ closeForm }) {
           setProgress(progress);
         },
         (error) => {
-          console.error(error);
+          // console.error(error);
           setLoading(false);
           toast.error("Failed to upload file.");
         },
@@ -84,7 +84,7 @@ function MailApplyForm({ closeForm }) {
                 closeForm();
               })
               .catch((error) => {
-                console.error(error);
+                // console.error(error);
                 setLoading(false);
                 toast.error("Failed to save data.");
               });
@@ -97,18 +97,48 @@ function MailApplyForm({ closeForm }) {
     }
   };
 
-  const handleValidation = (e) => {
+  const sendEmail = async () => {
+    const requestBody = {
+      fullName: formData.fullName,
+      phNumber: formData.phNumber,
+      emailAddress: formData.emailAddress,
+      selectedPosition: formData.selectedPosition,
+    };
+
+    try {
+      const res = await fetch(import.meta.env.VITE_EMAIL_URL, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(requestBody),
+      });
+
+      const data = await res.json();
+      // console.log("Data is", data);
+
+      if (data.status === 401 || !data) {
+        toast.error("Email Can't Send");
+      } else {
+        toast.success("You've received an email from the Qualy Myanmar Recruit Team. Please check your inbox.");
+      }
+    } catch (error) {
+      toast.error("Email Can't Send");
+    }
+  };
+
+  const handleValidation = async (e) => {
     e.preventDefault();
     const validationErrors = Validation({ formData });
     setErrors(validationErrors);
 
     if (Object.keys(validationErrors).length === 0) {
       // If no validation errors, send the email
-      // sendEmail();
-      sendData();
-      console.log("Form submitted:", formData);
+      await sendData();
+      // console.log("Form submitted:", formData);
+      await sendEmail();
     } else {
-      console.log("Form has validation errors");
+      // console.log("Form has validation errors");
       toast.error("Form has validation errors");
     }
   };
@@ -222,7 +252,7 @@ function MailApplyForm({ closeForm }) {
             <label htmlFor="cv">Upload Resume Form & Certificates *</label>
             <input type="file" id="cv" onChange={handleFileChange} />
             {errors.cv && <span className="error-txt">{errors.cv}</span>}
-            <span className="error-txt">※Please combine the 'CV, Japanese Language Certificate, and Other Certificates' into a single PDF file and attach it.</span>
+            <span className="error-txt mt20">※Please combine the 'CV, Japanese Language Certificate, and Other Certificates' into a single PDF file and attach it.</span>
           </div>
           <div className="txt-right">
             <button type="submit" onClick={handleValidation} disabled={loading}>

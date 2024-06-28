@@ -130,7 +130,7 @@ function Header() {
                 {adminUser && (
                   <>
                     <li>
-                      <Link to={"/applicants"}>
+                      <Link to={"/admin/applicants"}>
                         Show Applicants
                       </Link>
                     </li>

@@ -9,7 +9,6 @@ const database = getDatabase(app);
 
 function CompanyData() {
   const [data, setData] = useState([]);
-  console.log(data);
   const [showForm, setShowForm] = useState(false);
   const [isTablet, setIsTablet] = useState(window.innerWidth <= 768);
   const [isMobile, setIsMobile] = useState(window.innerWidth <= 500);
@@ -60,9 +59,9 @@ function CompanyData() {
   return (
     <div className="jobs-list">
       {data.map((post) => (
-        <>
+        <React.Fragment key={post.id}>
           {post.showPost && (
-            <div className="job-card" key={post.id}>
+            <div className="job-card">
               <h4 className="card-ttl">
                 {post.title}
                 <br className="sp" /> ({post.gender} - {post.hirePerson} Post{post.hirePerson > 1 ? "s" : ""})<span onClick={() => setShowForm(true)} className="arrow"></span>
@@ -79,8 +78,9 @@ function CompanyData() {
               <div className="detail" dangerouslySetInnerHTML={{ __html: post.description }}></div>
             </div>
           )}
-        </>
+        </React.Fragment>
       ))}
+
       <AnimatePresence>
         {showForm && (
           <motion.div
