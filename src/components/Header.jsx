@@ -130,6 +130,11 @@ function Header() {
                 {adminUser && (
                   <>
                     <li>
+                      <Link to={"/applicants"}>
+                        Show Applicants
+                      </Link>
+                    </li>
+                    <li>
                       <Link to={"/admin"} onClick={logoutHandler}>
                         <div className="txt-center">
                           <Avatar style={{ backgroundColor: "#87d068" }} icon={<UserOutlined />} />

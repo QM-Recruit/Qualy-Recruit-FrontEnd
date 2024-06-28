@@ -24,12 +24,28 @@ export default function Validation({ formData }) {
     errors.selectedPosition = "Please select a position";
   }
 
-  if (formData.shiftSystem === "") {
-    errors.shiftSystem = "Please select a Shift System";
+  if (formData.degreeLevel === "") {
+    errors.degreeLevel = "Please select a Degree Level";
+  }
+
+  if (formData.major === "") {
+    errors.major = "Major is Required";
+  }
+
+  if (formData.japaneseLevel === "") {
+    errors.japaneseLevel = "Please select a Japanese Level";
+  }
+
+  if (formData.religion === "") {
+    errors.religion = "Please select a Religion";
+  }
+
+  if (formData.gender === "") {
+    errors.gender = "Please select a Gender";
   }
 
   if (formData.cv === "") {
-    errors.cv = "Please upload your cv file";
+    errors.cv = "Please upload your resume form & certificates";
   }
   return errors;
 }

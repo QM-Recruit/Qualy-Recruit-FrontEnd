@@ -20,7 +20,7 @@ function Login() {
 
     // signin
     const { userName, password } = SignInData;
-    if ((import.meta.env.VITE_USERNAME === userName && import.meta.env.VITE_PASSWORD === password) || (import.meta.env.VITE_USERYAH === userName && import.meta.env.VITE_PASSYAH === password) || (import.meta.env.VITE_USERHR === userName && import.meta.env.VITE_PASSHR === password)) {
+    if ((import.meta.env.VITE_USERNAME === userName && import.meta.env.VITE_PASSWORD === password) || (import.meta.env.VITE_USERKH === userName && import.meta.env.VITE_PASSKH === password) || (import.meta.env.VITE_USERYAH === userName && import.meta.env.VITE_PASSYAH === password) || (import.meta.env.VITE_USERHR === userName && import.meta.env.VITE_PASSHR === password)) {
       dispatch({
         type: "SET_ADMINUSER",
         payload: SignInData,

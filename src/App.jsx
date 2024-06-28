@@ -13,6 +13,7 @@ import Loading from "./components/Loading";
 import InterviewSingle from "./page/InterviewSingle";
 import Error from "./components/Error";
 import RedirectLink from "./components/RedirectLink";
+import ShowApplicants from "./page/ShowApplicants";
 
 function App() {
   const { adminUser } = React.useContext(AuthContext);
@@ -41,6 +42,8 @@ function App() {
             <Route path="/interview/:id" element={<InterviewSingle />} />
             {adminUser && <Route path="/admin" element={<Admin />} />}
             {!adminUser && <Route path="/admin" element={<Login />} />}
+            {adminUser &&<Route path="/applicants" element={<ShowApplicants />} />}
+            {!adminUser && <Route path="/applicants" element={<Login />} />}
             <Route path="*" element={<Error />} />
           </Routes>
           <Footer />
