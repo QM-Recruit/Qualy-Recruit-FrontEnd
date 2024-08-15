@@ -234,7 +234,7 @@
 }
 .limiter.applicants .wrap-table100{
   width: 1400px;
-  overflow: scroll;
+  overflow-x: scroll;
 }
 @media (max-width: 768px) {
   .limiter .row {
