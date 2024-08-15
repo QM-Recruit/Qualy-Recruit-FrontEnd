@@ -152,10 +152,12 @@ function ShowApplicants() {
               ))}
             </div>
           </div>
-          <Button className="mt30" type="primary" onClick={exportToCSV}>
-            Export to CSV
-          </Button>
         </div>
+          <div className="txt-center">
+            <Button className="mt30" type="primary" onClick={exportToCSV}>
+              Export to CSV
+            </Button>
+          </div>
       </div>
     </div>
   );

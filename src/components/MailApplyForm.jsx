@@ -44,7 +44,7 @@ function MailApplyForm({ closeForm }) {
           setProgress(progress);
         },
         (error) => {
-          // console.error(error);
+          console.error(error);
           setLoading(false);
           toast.error("Failed to upload file.");
         },
